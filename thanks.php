@@ -4,6 +4,7 @@ mail()を使ってメールを送信します。マニュアルサイトhttp://p
 appacheがインストールされているサーバーマシン内のメールサーバー（sendmailとかpostfix）を操作できるのが
 mail()です。
 mail関数の引数（4つ入る）に適切なデータを入れる。
+mail(送信先,タイトル,メール本体,ヘッダー情報)
 */
 
 $to = "goodbooks823@gmail.com";
@@ -13,7 +14,7 @@ $kana =h($_POST['kana']);
 $email =h($_POST['mail']);
 $messagebody=h($_POST['message']);
 
-//メールサーバーから送信されたようなヘッダー情報を追加するのがみそ！
+//メールクライアントソフトから送信されたようなを追加すると送信先のメールクライアントそふとから「迷惑メール判定」を受けにくくなります
 
   $ip = getenv('REMOTE_ADDR');//サーバーのipアドレス
   $host = gethostbyaddr($ip);//サーバーのホスト名    
