@@ -18,13 +18,13 @@ $messagebody=h($_POST['message']);
 
   $ip = getenv('REMOTE_ADDR');//サーバーのipアドレス
   $host = gethostbyaddr($ip);//サーバーのホスト名    
-  $message .= "Name: ".$name.$kana."\n";//ここからヘッダー情報を$messageに追記していきます。
+  $message = "Name: ".$name.$kana."\n";//ここからヘッダー情報を$messageに追記していきます。
   $message .= "Email: ".$email."\n";
   $message .= "Subject: ".$subject."\n";
   $message .= "Message: ".$messagebody."\n\n";
   $message .= "IP:".$ip." HOST: ".$host."\n";
 
-  $headers .= "From: <".$email.">\r\n"; 
+  $headers = "From: <".$email.">\r\n"; 
 
   mail($to, $subject, $message, $headers); 
 
